@@ -1,7 +1,7 @@
 "use client"
 import { IconBriefcase2,  IconBrandLinkedin, IconBrandX, IconHome, IconMail, IconTool, IconTrophy,  IconExternalLink, IconArrowBigRightFilled,  } from '@tabler/icons-react';
 
-import {AnimatePresence,  motion, MotionValue, useMotionValue,  useTransform} from 'motion/react';
+import {AnimatePresence,  motion, MotionValue, useMotionValue  } from 'motion/react';
 import Link from "next/link";
 import React, { useRef , useState } from "react";
 export default function Home() {
@@ -159,11 +159,7 @@ export default function Home() {
   }
   const IconContainer=({el,mouseX}:{el:Link,mouseX:MotionValue<number>})=>{
     const ref= useRef<HTMLDivElement>(null);
-    const dist = useTransform(mouseX, (val) => {
-      const bounds = ref.current?.getBoundingClientRect();
-      if (!bounds) return 0;
-      return val - bounds.x - bounds.width / 2;
-    });
+    
 
     const [hovered,setHovered]=useState(false);
 
@@ -258,7 +254,7 @@ export default function Home() {
             <div className="flex items-center justify-baseline tracking-tight leading-none font-black text-[#353334] text-[4.5rem]">TOOLS</div>
             <div className="grid grid-cols-2">
               {tools.map((el) => (
-                <div className="flex  mt-[3rem] gap-x-2">
+                <div key={el.name} className="flex  mt-[3rem] gap-x-2">
                   <div className="h-[3.15rem] w-[3.15rem] rounded-[12px] bg-white"><img className="h-full w-full rounded-2xl object-cover " src={ el.image } alt="brand logo"></img></div>
                   <div>
                     <div className="flex items-center justify-between  font-bold text-[1.25rem]">{el.name}</div>
@@ -293,8 +289,8 @@ export default function Home() {
 
           </div>
           <div className="w-full h-[20rem] flex-col items-center justify-center  mt-[17.5em]">
-            <div className="flex items-center justify-center font-bold text-[3.5rem] text-neutral-400">Let's Connect</div>
-            <div className="flex items-center justify-center leading-relaxed p-10 text-[1rem] pt-2 text-[#837979]">I'm currently seeking new opportunities and would love to hear from you. Whether you have a question or just want to say hi, feel free to reach out.</div>
+            <div className="flex items-center justify-center font-bold text-[3.5rem] text-neutral-400">{"Let's Connect"}</div>
+            <div className="flex items-center justify-center leading-relaxed p-10 text-[1rem] pt-2 text-[#837979]">{"I'm currently seeking new opportunities and would love to hear from you. Whether you have a question or just want to say hi, feel free to reach out."}</div>
             <div className="flex items-center justify-center gap-[2rem] text-white">
               
               <a
