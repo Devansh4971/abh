@@ -1,7 +1,7 @@
 "use client"
-import { IconBriefcase2, IconFolder, IconBrandLinkedin, IconBrandX, IconHome, IconMail, IconTool, IconTrophy, IconDownload, IconExternalLink, IconArrowBigRight, IconArrowBigRightFilled,  } from '@tabler/icons-react';
+import { IconBriefcase2,  IconBrandLinkedin, IconBrandX, IconHome, IconMail, IconTool, IconTrophy,  IconExternalLink, IconArrowBigRightFilled,  } from '@tabler/icons-react';
 
-import {AnimatePresence, easeInOut, motion, MotionValue, useMotionValue, useSpring, useTransform} from 'motion/react';
+import {AnimatePresence,  motion, MotionValue, useMotionValue,  useTransform} from 'motion/react';
 import Link from "next/link";
 import React, { useRef , useState } from "react";
 export default function Home() {
