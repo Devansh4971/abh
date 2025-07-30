@@ -7,7 +7,7 @@ import React, { useRef , useState } from "react";
 export default function Home() {
   type Link={
     title:string;
-    icon:React.ReactNode|any;
+    icon:React.ReactNode;
     href:string
   }
   type Accomplishment={
@@ -152,8 +152,8 @@ export default function Home() {
   const mouseX=useMotionValue(Infinity)
   function NavigationBar(){
     return(
-    <motion.main onMouseMove={(e:any)=>mouseX.set(e.pageX)} onMouseLeave={(e:any)=>mouseX.set(Infinity)} className="h-[2.5rem] w-[12.5rem]  gap-y-[1.25rem] gap-x-5 flex items-center justify-center bg-[#1c1a19] rounded-xl ">
-      {links.map((el,idx)=>(<IconContainer mouseX={mouseX} key={el.title} el={el}></IconContainer>))}
+    <motion.main onMouseMove={(e)=>mouseX.set(e.pageX)} onMouseLeave={(e)=>mouseX.set(Infinity)} className="h-[2.5rem] w-[12.5rem]  gap-y-[1.25rem] gap-x-5 flex items-center justify-center bg-[#1c1a19] rounded-xl ">
+      {links.map((el)=>(<IconContainer mouseX={mouseX} key={el.title} el={el}></IconContainer>))}
     </motion.main>
     )
   }
@@ -200,7 +200,7 @@ export default function Home() {
             with a team-oriented mentality.
           </div>
           <div className="flex items-center justify-baseline mt-[2.5rem] gap-x-5">
-            {numbers.map((el, idx) => (
+            {numbers.map((el) => (
               <div key={el.title}>
                 <div className="text-[3.5rem] leading-none font-extrabold">{el.number}</div>
                 <div className="font-light text-xl text-[#837979]">{el.title}</div>
